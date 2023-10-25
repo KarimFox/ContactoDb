@@ -64,7 +64,7 @@ namespace ContactoDb.Controllers
         public IActionResult Eliminar(int IdContacto)
         {
             var contact = contactosDatos.ObtenerContacto(IdContacto);
-            return View(contact);
+            return View(contact);//uwu
         }
 
         [HttpPost]
