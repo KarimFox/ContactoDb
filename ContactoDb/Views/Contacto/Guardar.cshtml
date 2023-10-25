@@ -1,0 +1,43 @@
+﻿@model ContactoDb.Models.ContactoModel;
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Guardar</h1>
+
+<div class="card bg-dark text-white">
+    <img src="https://media.tenor.com/nvWLRVWg954AAAAC/boykisser-boop.gif" class="card-img" alt="ABABABAA">
+    <div class="card-header">
+           </div>
+        <div class="card-body">
+            <form asp-action="Guardar" asp-controller="Contacto" method="post">
+                <div class="col-md-4 mb-3">
+                    <label for="Nombre">Nombre</label>
+                    <input type="text" class="form-control" asp-for="Nombre" />
+                    <span asp-validation-for="Nombre" class="Text-danger"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="Clave">Clave</label>
+                    <input type="text" class="form-control" asp-for="Clave" />
+                    <span asp-validation-for="Clave" class="Text-danger"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="Telefono">Telefono</label>
+                    <input type="text" class="form-control" asp-for="Telefono" />
+                    <span asp-validation-for="Telefono" class="Text-danger"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="Correo">Correo</label>
+                    <input type="text" class="form-control" asp-for="Correo" />
+                    <span asp-validation-for="Correo" class="Text-danger"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                <button type="submit" class="btn btn-outline-primary"><i class="bi bi-valentine2"></i>Subir</button>
+                </div>
+            <a asp-controller="Contacto" asp-action="Listar"><i class="bi bi-x-diamond"></i>Volver a la vista</a>
+            </form>
+        </div>
+
+ 
+</div>

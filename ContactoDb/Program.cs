@@ -28,7 +28,7 @@ namespace ContactoDb
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Contacto}/{action=Listar}/{id?}");
 
             app.Run();
         }

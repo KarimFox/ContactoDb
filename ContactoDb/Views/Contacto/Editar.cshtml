@@ -1,0 +1,41 @@
+﻿@model ContactoDb.Models.ContactoModel;
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card col-8">
+    <div class="card-header">
+        <h1>Editar</h1>
+    </div>
+    <div class="card-body">
+        <form asp-action="Editar" asp-controller="Contacto" method="post">
+            <input type="hidden" asp-for="IdContacto" class="form-control" />
+            <div class="col-md-4 mb-3">
+                <label for="Nombre">Nombre</label>
+                <input type="text" class="form-control" asp-for="Nombre" />
+                <span asp-validation-for="Nombre" class="Text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="Clave">Clave</label>
+                <input type="text" class="form-control" asp-for="Clave" />
+                <span asp-validation-for="Clave" class="Text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="Telefono">Telefono</label>
+                <input type="text" class="form-control" asp-for="Telefono" />
+                <span asp-validation-for="Telefono" class="Text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="Correo">Correo</label>
+                <input type="text" class="form-control" asp-for="Correo" />
+                <span asp-validation-for="Correo" class="Text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <button type="submit" class="btn btn-outline-primary"><i class="bi bi-stars"></i>Editar</button>
+            </div>
+            <a asp-controller="Contacto" asp-action="Listar"><i class="bi bi-x-diamond"></i>Volver a la vista</a>
+        </form>
+    </div>
+</div>

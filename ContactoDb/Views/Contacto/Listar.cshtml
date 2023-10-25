@@ -1,5 +1,43 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<ContactoModel>;
 @{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+<div class="card bg-dark col-8 text-white">
+    <div class="card-header">
+        <h1>Listar</h1>
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-controller="Contacto"><i class="bi bi-person-heart"></i>Crea un Nuevo Contacto</a>
+        <table class="table table-dark table-striped">
+            <tr>
+                <th><i class="bi bi-suit-heart"></i>Nombre</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Clave</th>
+ 
+                
+            </tr>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nombre</td>
+                        <td>@item.Telefono</td>
+                        <td>@item.Correo</td>
+                        <td>@item.Clave</td>
+                        <td>
+                            <a asp-action="Editar" asp-controller="Contacto" asp-route-idContacto="@item.IdContacto" class="btn btn-outline-info btn-sm"><i class="bi bi-vector-pen"></i>Editar</a>
+                        </td>
+                        <td>
+                            <a asp-action="Eliminar" asp-controller="Contacto" asp-route-idContacto="@item.IdContacto" class="btn btn-outline-danger btn-sm"><i class="bi bi-person-slash"></i>Eliminar</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

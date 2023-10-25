@@ -145,28 +145,30 @@ namespace ContactoDb_ACL.Datos
         }
 
         //Método de eliminar
-        public bool EliminarContacto(int IdContacto)
+        public bool EliminarContacto(ContactoModel contact)
         {
-            bool respuesta;
+            bool response;
+
             try
             {
-                var cn = new Conexion();
-                using (var conexion = new SqlConnection(cn.CadenaSql()))
+                var connection = new Conexion();
+
+                using (var dbConnection = new SqlConnection(connection.CadenaSql()))
                 {
-                    conexion.Open();
-                    SqlCommand cmd = new SqlCommand("sp_Eliminar", conexion);
-                    cmd.Parameters.AddWithValue("IdContacto", IdContacto);
+                    dbConnection.Open();
+                    SqlCommand cmd = new SqlCommand("sp_Eliminar", dbConnection);
+                    cmd.Parameters.AddWithValue("IdContacto", contact.IdContacto);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
-                respuesta = true;
+                response = true;
             }
             catch (Exception e)
             {
                 string error = e.Message;
-                respuesta = false;
+                response = false;
             }
-            return respuesta;
+            return response;
         }
 
 
